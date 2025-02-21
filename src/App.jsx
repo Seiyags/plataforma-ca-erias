@@ -6,6 +6,7 @@ import Descargar from "./pages/Descargar";
 import logo from "./assets/logonuevo.png";
 import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { BsCopy } from "react-icons/bs";
+import Banner from './components/Banner';
 const copiar = (event) => {
   const id = event.currentTarget.id;
   navigator.clipboard.writeText(id).catch((err) => {
@@ -19,7 +20,7 @@ function App() {
       <header className="flex items-center bg-gray-100 p-3 h-20 border-b-gray-300 border-b-1">
         <img src={logo} className="h-full" alt="Logo" />
         <div className="flex items-center flex-1 justify-between">
-          <h1 className="text-2xl font-bold font p-3 text-sky-700">
+          <h1 className="text-2xl font-bold font p-3 text-gray-800">
             Plataforma Cañerias
           </h1>
           <nav className="p-3 space">
@@ -63,8 +64,9 @@ function App() {
             </ul>
           </nav>
         </div>
+        
       </header>
-
+      <Banner />
       <main className="pt20 min-h-screen bg-gray-200">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -74,6 +76,7 @@ function App() {
         </Routes>
       </main>
       <footer className="flex justify-between bg-gray-100 p-3 border-t-gray-300 border-t-1">
+
         <div className="flex flex-col">
           <p className="text-center text-xs mb-1 text-gray-700">CONTACTO</p>
           <ul className="flex space-x-2.5 items-center justify-center text-xs">
