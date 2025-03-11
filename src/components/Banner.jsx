@@ -1,16 +1,32 @@
-// Banner.js
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 
 const Banner = () => {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
+  const location = useLocation();
+  const getTitle = () => {
+    switch (location.pathname) {
+      case "/":
+        return "Inicio";
+      case "/Procedimiento":
+        return "Procedimiento";
+      case "/Visual":
+        return "Visual";
+      case "/Descargar":
+        return "Descargar";
+      case "/Formulario":
+        return "Formulario";
+      default:
+        return "Plataforma Cañerías";
+    }
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     const container = containerRef.current;
 
-    // Ajustar el tamaño del canvas al tamaño del contenedor
     canvas.width = container.offsetWidth * window.devicePixelRatio;
     canvas.height = container.offsetHeight * window.devicePixelRatio;
 
@@ -25,7 +41,7 @@ const Banner = () => {
         this.x = Math.floor(x);
         this.y = Math.floor(y);
         this.ctx = this.effect.ctx;
-        this.ctx.fillStyle = 'white';
+        this.ctx.fillStyle = "gray";
         this.vx = 0;
         this.vy = 0;
         this.ease = 0.2;
@@ -35,7 +51,7 @@ const Banner = () => {
         this.distance = 0;
         this.force = 0;
         this.angle = 0;
-        this.size = Math.floor(Math.random() * 2); // Reducir tamaño de las partículas
+        this.size = Math.floor(Math.random() * 2);
         this.draw();
       }
 
@@ -48,7 +64,7 @@ const Banner = () => {
         this.dx = this.effect.mouse.x - this.x;
         this.dy = this.effect.mouse.y - this.y;
         this.distance = this.dx * this.dx + this.dy * this.dy;
-        this.force = -this.effect.mouse.radius / this.distance * 8;
+        this.force = (-this.effect.mouse.radius / this.distance) * 5;
 
         if (this.distance < this.effect.mouse.radius) {
           this.angle = Math.atan2(this.dy, this.dx);
@@ -56,8 +72,10 @@ const Banner = () => {
           this.vy += this.force * Math.sin(this.angle);
         }
 
-        this.x += (this.vx *= this.friction) + (this.originX - this.x) * this.ease;
-        this.y += (this.vy *= this.friction) + (this.originY - this.y) * this.ease;
+        this.x +=
+          (this.vx *= this.friction) + (this.originX - this.x) * this.ease;
+        this.y +=
+          (this.vy *= this.friction) + (this.originY - this.y) * this.ease;
         this.draw();
       }
     }
@@ -68,16 +86,15 @@ const Banner = () => {
         this.height = height;
         this.ctx = context;
         this.particlesArray = [];
-        this.gap = 10; // Reducir gap para más partículas
         this.mouse = { radius: 3000, x: 0, y: 0 };
 
-        window.addEventListener('mousemove', (e) => {
+        window.addEventListener("mousemove", (e) => {
           const rect = canvas.getBoundingClientRect();
           this.mouse.x = (e.clientX - rect.left) * window.devicePixelRatio;
           this.mouse.y = (e.clientY - rect.top) * window.devicePixelRatio;
         });
 
-        window.addEventListener('resize', () => {
+        window.addEventListener("resize", () => {
           canvas.width = container.offsetWidth * window.devicePixelRatio;
           canvas.height = container.offsetHeight * window.devicePixelRatio;
           this.width = container.offsetWidth;
@@ -93,9 +110,15 @@ const Banner = () => {
       }
 
       init() {
-        for (let x = 0; x < this.width; x += this.gap) {
-          for (let y = 0; y < this.height; y += this.gap) {
-            this.particlesArray.push(new Particle(x, y, this));
+        const gap = 10; // Mantener el gap fijo
+        const columns = Math.floor(this.width / gap);
+        const rows = Math.floor(this.height / gap);
+
+        for (let x = 0; x < columns; x++) {
+          for (let y = 0; y < rows; y++) {
+            const particleX = x * gap;
+            const particleY = y * gap;
+            this.particlesArray.push(new Particle(particleX, particleY, this));
           }
         }
       }
@@ -120,12 +143,11 @@ const Banner = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full bg-gray-900"
-      style={{
-        overflow: 'hidden',
-        height: '200px', // Aquí puedes ajustar la altura del banner
-      }}
+      className="relative flex justify-center items-center w-full bg-slate-800 overflow-hidden h-25"
     >
+      <h2 className="text-gray-100 text-2xl bg-slate font-light">
+        {getTitle()}
+      </h2>
       <canvas ref={canvasRef} className="absolute top-0 left-0" />
     </div>
   );

@@ -1,16 +1,2 @@
 @import "tailwindcss";
-.prueba{
-    text-decoration: none;
-    color: #000;
-}
-.prueba:after{
-    content:'';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #000;
-}
-.prueba:hover:after{
-    width: 100%;
-    transition: width 0.3s;
-}
+@plugin 'tailwind-scrollbar';

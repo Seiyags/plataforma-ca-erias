@@ -1,0 +1,72 @@
+        <form className="grid w-full h-64 overflow-auto scrollbar-thumb-gray-900 scrollbar-track-gray-100 scrollbar-medium">
+          <div className="w-full bg-slate-700 p-6 rounded-sm shadow-lg grid gap-4 h-23">
+            <div className="flex justify-center gap-4">
+              <input
+                className="w-full p-2 rounded-xs bg-slate-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-500"
+                type="text"
+                placeholder="Texto"
+              />
+              <input
+                className="w-24 p-2 rounded-xs bg-slate-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-500"
+                type="number"
+                placeholder="Número"
+              />
+            </div>
+          </div>
+          <div className="w-full bg-slate-700 p-6 rounded-sm shadow-lg grid gap-4 h-23">
+            <div className="flex justify-center gap-4">
+              <input
+                className="w-full p-2 rounded-xs bg-slate-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-500"
+                type="text"
+                placeholder="Texto"
+              />
+              <input
+                className="w-24 p-2 rounded-xs bg-slate-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-500"
+                type="number"
+                placeholder="Número"
+              />
+            </div>
+          </div>
+          <div className="w-full bg-slate-700 p-6 rounded-sm shadow-lg grid gap-4 h-23">
+            <div className="flex justify-center gap-4">
+              <input
+                className="w-full p-2 rounded-xs bg-slate-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-500"
+                type="text"
+                placeholder="Texto"
+              />
+              <input
+                className="w-24 p-2 rounded-xs bg-slate-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-500"
+                type="number"
+                placeholder="Número"
+              />
+            </div>
+          </div>
+          <div className="w-full bg-slate-700 p-6 rounded-sm shadow-lg grid gap-4 h-23">
+            <div className="flex justify-center gap-4">
+              <input
+                className="w-full p-2 rounded-xs bg-slate-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-500"
+                type="text"
+                placeholder="Texto"
+              />
+              <input
+                className="w-24 p-2 rounded-xs bg-slate-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-500"
+                type="number"
+                placeholder="Número"
+              />
+            </div>
+          </div>
+          <div className="w-full bg-slate-700 p-6 rounded-sm shadow-lg grid gap-4 h-23">
+            <div className="flex justify-center gap-4">
+              <input
+                className="w-full p-2 rounded-xs bg-slate-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-500"
+                type="text"
+                placeholder="Texto"
+              />
+              <input
+                className="w-24 p-2 rounded-xs bg-slate-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-500"
+                type="number"
+                placeholder="Número"
+              />
+            </div>
+          </div>
+        </form>
